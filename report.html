@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Civic Seva - Report Issue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Civic Seva</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report.html">Report Issue</a></li>
+                <li><a href="dashboard.html">Issues</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Report Civic Issue</h2>
+            <form id="issueForm">
+                <input id="title" placeholder="Issue title" required>
+
+                <select id="category">
+                    <option>Pothole</option>
+                    <option>Street Light</option>
+                    <option>Garbage</option>
+                    <option>Water Leakage</option>
+                </select>
+
+                <input id="location" placeholder="Location" required readonly>
+                <div id="map" style="height:300px; margin-top:10px; width:100%;"></div>
+
+                <input type="file" id="image">
+                <textarea id="description" placeholder="Describe the problem" required></textarea>
+
+                <button type="submit">Submit Issue</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</body>
+
+</html>

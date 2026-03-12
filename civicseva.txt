@@ -1,0 +1,20 @@
+civic-seva
+│
+├── server
+│   ├── server.js
+│   ├── models
+│   │     ├── User.js
+│   │     └── Issue.js
+│   └── routes
+│         ├── auth.js
+│         └── issues.js
+│
+├── client
+│   ├── index.html
+│   ├── register.html
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── report.html
+│   └── style.css
+│
+└── package.json

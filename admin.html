@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Civic Seva</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report.html">Report Issue</a></li>
+                <li><a href="dashboard.html">Issues</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+        <div class="stats">
+            <div class="card">
+                <h3>Total Issues</h3>
+                <p id="totalIssues" style="font-size: 24px; font-weight: bold;"></p>
+            </div>
+            <div class="card">
+                <h3>Resolved</h3>
+                <p id="resolvedIssues" style="font-size: 24px; font-weight: bold; color: green;"></p>
+            </div>
+            <div class="card">
+                <h3>Pending</h3>
+                <p id="pendingIssues" style="font-size: 24px; font-weight: bold; color: red;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

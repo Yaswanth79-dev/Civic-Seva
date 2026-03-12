@@ -1,0 +1,148 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f5f7fb;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1976d2;
+    padding: 15px 30px;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    background: #1976d2;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin: 10px;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #0d47a1;
+}
+
+/* General Layout */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+/* Forms */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 12px;
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0d47a1;
+}
+
+/* Issue cards */
+.issueCard {
+    background: white;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #1976d2;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stats .card {
+    flex: 1;
+    text-align: center;
+    min-width: 250px;
+    margin: 0;
+}
+
+@media(max-width:768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+}

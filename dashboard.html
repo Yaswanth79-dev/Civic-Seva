@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Civic Seva - Issues Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) {
+            alert("Please login first");
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Civic Seva</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report.html">Report Issue</a></li>
+                <li><a href="dashboard.html">Issues</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><button onclick="logout()"
+                        style="width:auto; margin-top:0; padding:8px 15px; background:white; color:#1976d2;">Logout</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h3 id="welcomeUser"></h3>
+        <h2>Reported Issues</h2>
+        <div id="issuesList"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
