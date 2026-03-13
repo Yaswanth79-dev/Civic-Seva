@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Civic Seva - Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" style="max-width: 450px; margin-top: 100px;">
+        <div class="card" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <div class="logo" style="text-align: center; margin-bottom: 20px;">Civic Seva</div>
+            <h2 style="text-align: center;" data-i18n="register">Register</h2>
+            <form id="registerForm">
+                <input id="name" placeholder="Full Name" required>
+                <input id="email" type="email" placeholder="Email Address" required>
+                <input id="password" type="password" placeholder="Password" required>
+                
+                <label>Account Type</label>
+                <select id="role">
+                    <option value="user">Citizen (User)</option>
+                    <option value="department">Department Official</option>
+                    <option value="government">Government Observer</option>
+                </select>
+
+                <button type="submit" class="btn vibrant" style="width: 100%;">Create Account</button>
+            </form>
+            <p style="text-align: center; margin-top: 20px;">
+                Already have an account? <a href="login.html">Login</a>
+            </p>
+        </div>
+    </div>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

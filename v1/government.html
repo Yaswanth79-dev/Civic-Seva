@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Civic Seva - Government Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Civic Seva | Government Hub</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><button onclick="logout()" class="btn" style="padding: 5px 15px;">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div style="display:flex; gap:20px; margin-bottom:40px;">
+            <div class="card" style="flex:1; background:var(--primary); color:white; padding:25px; border-radius:20px;">
+                <h3 id="statTotal">0</h3>
+                <p>Total Complaints</p>
+            </div>
+            <div class="card" style="flex:1; background:var(--success); color:white; padding:25px; border-radius:20px;">
+                <h3 id="statResolved">0</h3>
+                <p>Resolved by Community</p>
+            </div>
+            <div class="card" style="flex:1; background:var(--accent); color:white; padding:25px; border-radius:20px;">
+                <h3 id="statPending">0</h3>
+                <p>Pending Review</p>
+            </div>
+        </div>
+
+        <h2>All City Complaints</h2>
+        <div id="govIssues" class="grid-feed"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user || user.role !== 'government') {
+            window.location.href = "login.html";
+        }
+
+        async function loadGovStats() {
+            const res = await fetch(`${API}/issues`);
+            const issues = await res.json();
+            
+            document.getElementById("statTotal").innerText = issues.length;
+            document.getElementById("statResolved").innerText = issues.filter(i => i.status === 'Resolved').length;
+            document.getElementById("statPending").innerText = issues.filter(i => i.status === 'Submitted').length;
+
+            const list = document.getElementById("govIssues");
+            list.innerHTML = issues.map(issue => `
+                <div class="issue-card">
+                    <img src="${issue.image ? '/uploads/' + issue.image : 'https://placehold.co/600x400'}" alt="issue">
+                    <div class="issue-card-content">
+                        <span class="status-badge">${issue.status}</span>
+                        <h3>${issue.title}</h3>
+                        <p>${issue.description}</p>
+                        <small>Reporter: ${issue.reporterId || 'Anonymous'}</small>
+                    </div>
+                </div>
+            `).join('');
+        }
+        loadGovStats();
+    </script>
+</body>
+
+</html>

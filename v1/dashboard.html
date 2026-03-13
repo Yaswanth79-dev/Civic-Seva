@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civic Seva - Issues Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-city"></i>
+                <span>Civic Seva</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="report.html">Report Issue</a>
+                <a href="map.html">Map</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
+            </nav>
+            <div class="nav-actions">
+                <button onclick="logout()" class="btn btn-outline" style="padding: 8px 16px; border-color: #cbd5e1; color: #64748b;">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-header">
+            <h2>Your City's Issues</h2>
+            <p>Track the status of all reported civic problems</p>
+        </div>
+
+        <div id="issuesList" class="swiggy-grid">
+            <!-- Cards will be injected here via script.js -->
+        </div>
+    </main>
+
+    <!-- Detailed Issue Modal -->
+    <div id="detailModal" class="modal-fullscreen">
+        <div class="modal-inner">
+            <button class="modal-back" onclick="closeModal()">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </button>
+            <div id="modalBody" class="detail-container"></div>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

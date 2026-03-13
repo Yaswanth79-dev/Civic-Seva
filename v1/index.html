@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civic Seva - Smart City Reporting</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-city"></i>
+                <span>Civic Seva</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="active">Home</a>
+                <a href="report.html">Report Issue</a>
+                <a href="map.html">Map</a>
+                <a href="dashboard.html">Dashboard</a>
+            </nav>
+            <div class="nav-actions">
+                <select id="langSelect" onchange="updateLanguage(this.value)" class="lang-picker">
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी</option>
+                    <option value="te">తెలుగు</option>
+                </select>
+                <div id="navPoints" class="points-badge" style="display:none;">
+                    <i class="fas fa-coins text-gold"></i>
+                    <span id="userPointsDisplay">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-v2">
+            <div class="hero-content">
+                <h1>Report Civic Issues in Your City</h1>
+                <p>Together, let's build a cleaner and safer community.</p>
+                <div class="hero-ctas">
+                    <a href="report.html" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Report Issue
+                    </a>
+                    <a href="map.html" class="btn btn-outline">
+                        <i class="fas fa-map-marked-alt"></i> View Map
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container recent-issues-section">
+            <div class="section-header">
+                <h2>Recent Issues</h2>
+                <p>Stay updated with what's happening around you</p>
+            </div>
+            
+            <div id="recentIssuesList" class="swiggy-grid">
+                <!-- Cards will be injected here -->
+                <div class="skeleton-grid">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detailed Issue Modal (Page-like behavior) -->
+    <div id="detailModal" class="modal-fullscreen">
+        <div class="modal-inner">
+            <button class="modal-back" onclick="closeModal()">
+                <i class="fas fa-arrow-left"></i> Back to Feed
+            </button>
+            <div id="modalBody" class="detail-container">
+                <!-- Detailed content injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

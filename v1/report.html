@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Civic Seva - Report Issue</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo" data-i18n="app_title">Civic Seva</div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="home">Home</a></li>
+                <li><a href="report.html" data-i18n="report">Report Issue</a></li>
+                <li>
+                    <select id="langSelect" onchange="updateLanguage(this.value)" class="lang-picker">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="te">తెలుగు</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="max-width: 600px;">
+        <div class="card" style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <h2 data-i18n="report">Report Civic Issue</h2>
+            <form id="issueForm">
+                <label data-i18n="title">Title</label>
+                <input id="title" placeholder="Pothole on Main St" data-i18n="title" required>
+
+                <label data-i18n="category">Category</label>
+                <select id="category">
+                    <option value="Pothole" data-i18n="pothole">Pothole</option>
+                    <option value="Street Light" data-i18n="light">Street Light</option>
+                    <option value="Garbage" data-i18n="garbage">Garbage</option>
+                    <option value="Water Leakage" data-i18n="water">Water Leakage</option>
+                </select>
+
+                <label data-i18n="location">Location</label>
+                <input id="location" placeholder="Address or Area Name" data-i18n="location" required>
+                
+                <div id="mapPlaceholder" style="height:200px; background:#f1f5f9; border-radius:15px; display:flex; align-items:center; justify-content:center; margin-bottom:15px; color:#64748b;">
+                    <p>Map integrated with auto-location</p>
+                </div>
+
+                <label>Upload Photo</label>
+                <input type="file" id="image" required accept="image/*">
+
+                <label>Voice Description (Optional)</label>
+                <button type="button" id="voiceBtn" class="btn" style="width:100%; margin-bottom:10px;">Record Voice Description</button>
+
+                <label>Text Description</label>
+                <textarea id="description" placeholder="Describe the problem in detail" data-i18n="description" required></textarea>
+
+                <button type="submit" class="btn vibrant" style="width:100%;" data-i18n="submit">Submit Issue</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Civic Seva - Department Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Civic Seva | <span id="deptName">Department</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><button onclick="logout()" class="btn" style="padding: 5px 15px;">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Assigned Complaints</h2>
+        <p>This dashboard shows issues relevant to your department.</p>
+        <div id="deptIssues" class="grid-feed"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user || user.role !== 'department') {
+            window.location.href = "login.html";
+        }
+        document.getElementById("deptName").innerText = user.departmentType || "Official";
+
+        async function loadDeptIssues() {
+            const res = await fetch(`${API}/issues?role=department&dept=${user.departmentType}`);
+            const issues = await res.json();
+            const list = document.getElementById("deptIssues");
+            
+            list.innerHTML = issues.map(issue => `
+                <div class="issue-card">
+                    <img src="${issue.image ? '/uploads/' + issue.image : 'https://placehold.co/600x400'}" alt="issue">
+                    <div class="issue-card-content">
+                        <span class="status-badge">${issue.status}</span>
+                        <h3>${issue.title}</h3>
+                        <p>${issue.description}</p>
+                        <button class="btn vibrant" onclick="showIssueDetail('${issue._id}')">View Details</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        loadDeptIssues();
+    </script>
+</body>
+
+</html>
